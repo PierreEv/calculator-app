@@ -1,0 +1,26 @@
+.app {
+    border: 1px solid black;   
+    max-width: 200px;
+}
+
+.display {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.text-operation {
+    height: 20px;
+    padding: 5px;
+}
+
+.value-operation {
+    height: 20px;
+    background-color: lightgray;
+    padding: 5px;
+}
+
+button {
+    margin: 5px;
+    width: 40px;
+    height: 30px;
+}
