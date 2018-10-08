@@ -2,42 +2,54 @@ import React from 'react';
 import Button from './Button';
 
 class Keyboard extends React.Component {
-    renderButton(i) {
+    renderButton(i, onClick) {
       return <Button
                 value={i}
-                onClick={() => this.props.onClick(i)}
+                onClick={() => onClick(i)}
                 />;
+    }
+
+    renderTextButton(i) {
+      return this.renderButton(i, this.props.onTextClick);
+    }
+
+    renderClearButton(i) {
+      return this.renderButton(i, this.props.onClearClick);
+    }
+
+    renderComputeButton(i) {
+      return this.renderButton(i, this.props.onComputeClick);
     }
   
     render() { 
       return (
         <div>
           <div className="board-row">
-            {this.renderButton(7)}
-            {this.renderButton(8)}
-            {this.renderButton(9)}
-            {this.renderButton('+')}
+            {this.renderTextButton(7)}
+            {this.renderTextButton(8)}
+            {this.renderTextButton(9)}
+            {this.renderTextButton('+')}
           </div>
           <div className="board-row">
-            {this.renderButton(4)}
-            {this.renderButton(5)}
-            {this.renderButton(6)}
-            {this.renderButton('-')}
+            {this.renderTextButton(4)}
+            {this.renderTextButton(5)}
+            {this.renderTextButton(6)}
+            {this.renderTextButton('-')}
           </div>
           <div className="board-row">
-            {this.renderButton(1)}
-            {this.renderButton(2)}
-            {this.renderButton(3)}
-            {this.renderButton('*')}
+            {this.renderTextButton(1)}
+            {this.renderTextButton(2)}
+            {this.renderTextButton(3)}
+            {this.renderTextButton('*')}
           </div>
           <div className="board-row">
-            {this.renderButton(0)}
-            {this.renderButton('.')}
-            {this.renderButton('=')}
-            {this.renderButton('/')}
+            {this.renderTextButton(0)}
+            {this.renderTextButton('.')}
+            {this.renderComputeButton('=')}
+            {this.renderTextButton('/')}
           </div>
           <div className="board-row">
-            {this.renderButton('C')}
+            {this.renderClearButton('C')}
           </div>
         </div>
       );
