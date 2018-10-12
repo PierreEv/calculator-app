@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addText, clearText, computeText } from '../redux/actions'
+import { addText, clearText, computeText, randomText } from '../redux/actions'
 import Keyboard from './Keyboard'
 
 const mapDispatchToProps = (dispatch, props) => {
@@ -7,6 +7,10 @@ const mapDispatchToProps = (dispatch, props) => {
         onTextClick: i => dispatch(addText(i)),
         onClearClick: () => dispatch(clearText()),
         onComputeClick: () => dispatch(computeText()),
+        onRandomCompute: () => {
+            dispatch(randomText());
+            dispatch(computeText());
+        }
     }
 };
 

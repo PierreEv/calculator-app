@@ -1,5 +1,5 @@
-import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT } from "./action-types";
-import {computeValue } from "../utils"
+import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT, RANDOM_TEXT } from "./action-types";
+import { computeValue, randomText } from "../utils"
 
 const initialState = {
     text: '',
@@ -12,6 +12,9 @@ const setText = (state, action, value) => {
             const baseText = value !== null ? '' : '' + state;
             return baseText + action.text;
 
+        case RANDOM_TEXT: 
+            return randomText();
+        
         case CLEAR_TEXT:
             return '';
         

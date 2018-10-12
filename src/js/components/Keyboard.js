@@ -1,27 +1,49 @@
 import React from 'react';
 import Button from './Button';
+import { getUserRole } from "../utils"
 
 class Keyboard extends React.Component {
-    renderButton(i, onClick) {
+
+    constructor(props){
+        super(props);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+
+    handleKeyDown (event) {
+        if(event.keyCode === 32 && typeof(this.props.onRandomCompute) === 'function' && getUserRole() === 'developer') {
+            event.preventDefault();
+            this.props.onRandomCompute();
+        }
+    }
+
+    componentDidMount () {
+        document.addEventListener("keydown", this.handleKeyDown, false);
+    }
+
+    componentWillUnmount () {
+        document.removeEventListener("keydown", this.handleKeyDown, false);
+    }
+
+    renderButton (i, onClick) {
       return <Button
                 value={i}
                 onClick={() => onClick(i)}
                 />;
     }
 
-    renderTextButton(i) {
+    renderTextButton (i) {
       return this.renderButton(i, this.props.onTextClick);
     }
 
-    renderClearButton(i) {
+    renderClearButton (i) {
       return this.renderButton(i, this.props.onClearClick);
     }
 
-    renderComputeButton(i) {
+    renderComputeButton (i) {
       return this.renderButton(i, this.props.onComputeClick);
     }
   
-    render() { 
+    render () { 
       return (
         <div>
           <div className="board-row">
