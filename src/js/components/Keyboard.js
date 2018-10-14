@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import { getUserRole } from "../utils"
+import { getUserRole } from "../utils";
 
 class Keyboard extends React.Component {
 
