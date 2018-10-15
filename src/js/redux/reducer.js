@@ -42,10 +42,10 @@ const setValue = (state, action, text) => {
 const setHistory = (state, action, text, value) => {
     switch (action.type) {
         case COMPUTE_TEXT:            
-            return state.concat({
+            return value !== null ? state.concat({
                 text: text,
                 value: value
-            });
+            }) : state;
             
         default:
             return state;
@@ -64,16 +64,13 @@ const setFilter = (state, action) => {
 
 const reducer = (state = initialState, action) => {
     const newText = setText(state.text, action, state.value),
-        newValue = setValue(state.value, action, state.text),
-        newFilter = setFilter(state.filter, action);
-
-    const newHistory = setHistory(state.history, action, newText, newValue);
+        newValue = setValue(state.value, action, state.text);
 
     return {
         text: newText,
         value: newValue,
-        history: newHistory,
-        filter: newFilter
+        filter: setFilter(state.filter, action),
+        history: setHistory(state.history, action, newText, newValue)
     }
 };
 
