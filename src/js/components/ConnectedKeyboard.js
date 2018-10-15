@@ -1,6 +1,6 @@
-import { connect } from 'react-redux'
-import { addText, clearText, computeText, randomText } from '../redux/actions'
-import Keyboard from './Keyboard'
+import { connect } from 'react-redux';
+import { addText, clearText, computeText, randomText } from '../redux/actions';
+import Keyboard from './Keyboard';
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(randomText());
             dispatch(computeText());
         }
-    }
+    };
 };
 
 const ConnectedKeyboard = connect(null, mapDispatchToProps)(Keyboard);

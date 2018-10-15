@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
-import Display from './Display'
+import { connect } from 'react-redux';
+import Display from './Display';
 
 const mapStateToProps = (state, props) => {
     return {

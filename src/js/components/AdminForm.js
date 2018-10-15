@@ -3,7 +3,7 @@ import ConnectedList from './List';
 import ConnectedSearch from './Search';
 
 class AdminForm extends React.Component {
-    render() {
+    render () {
         return (
             <div className="AdminForm">
                 <ConnectedSearch />
@@ -11,6 +11,6 @@ class AdminForm extends React.Component {
             </div>
         );
     }
-};
+}
 
 export default AdminForm;

@@ -2,32 +2,32 @@ import React from 'react';
 import Display from './ConnectedDisplay';
 import Keyboard from './ConnectedKeyboard';
 import AdminForm from './AdminForm';
-import { getUserRole } from "../utils";
+import { getUserRole } from '../utils';
 
 class App extends React.Component {
 
-    constructor(props){
+    constructor (props) {
         super(props);
         this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.state = {displayAdminForm: false};
+        this.state = { displayAdminForm: false };
     }
 
     handleKeyDown (event) {
-        if(event.keyCode === 72 && getUserRole() === 'admin') {
+        if (event.keyCode === 72 && getUserRole() === 'admin') {
             event.preventDefault();
-            this.setState({displayAdminForm : !this.state.displayAdminForm});
+            this.setState({ displayAdminForm: !this.state.displayAdminForm });
         }
     }
 
     componentDidMount () {
-        document.addEventListener("keydown", this.handleKeyDown, false);
+        document.addEventListener('keydown', this.handleKeyDown, false);
     }
 
     componentWillUnmount () {
-        document.removeEventListener("keydown", this.handleKeyDown, false);
+        document.removeEventListener('keydown', this.handleKeyDown, false);
     }
 
-    render() {
+    render () {
         return (
             <div className='app'>
                 <Display />

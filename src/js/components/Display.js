@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Display extends React.Component {
-    render() {
+    render () {
         return (
             <div className="display">
                 <div className='text-operation'>{this.props.text}</div>

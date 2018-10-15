@@ -1,4 +1,4 @@
-import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT, RANDOM_TEXT, SET_FILTER } from "./action-types";
+import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT, RANDOM_TEXT, SET_FILTER } from './action-types';
 
 export const addText = text => ({ type: ADD_TEXT, text: text });
 export const clearText = () => ({ type: CLEAR_TEXT });

@@ -4,26 +4,26 @@ import { setFilter } from '../redux/actions';
 
 class Search extends React.Component {
 
-    constructor(props){
+    constructor (props) {
         super(props);
-        this.state = {inputText: ''};
+        this.state = { inputText: '' };
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({inputText: event.target.value});
+    handleChange (event) {
+        this.setState({ inputText: event.target.value });
     }
 
-    handleSubmit(event) {
-        if(typeof(this.props.onFilterHistory) === 'function') {
+    handleSubmit (event) {
+        if (typeof(this.props.onFilterHistory) === 'function') {
             this.props.onFilterHistory(this.state.inputText);
         }
         event.preventDefault();
     }
 
-    render() {
+    render () {
         return (
             <div className="search">
                 <form onSubmit={this.handleSubmit}>
@@ -39,7 +39,7 @@ class Search extends React.Component {
 const mapDispatchToProps = (dispatch, props) => {
     return {
         onFilterHistory: f => dispatch(setFilter(f))
-    }
+    };
 };
 
 const ConnectedSearch = connect(null, mapDispatchToProps)(Search);

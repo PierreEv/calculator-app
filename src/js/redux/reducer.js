@@ -1,5 +1,5 @@
-import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT, RANDOM_TEXT, SET_FILTER } from "./action-types";
-import { computeValue, randomText } from "../utils"
+import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT, RANDOM_TEXT, SET_FILTER } from './action-types';
+import { computeValue, randomText } from '../utils';
 
 const initialState = {
     history: [],
@@ -10,9 +10,10 @@ const initialState = {
 
 const setText = (state, action, value) => {
     switch (action.type) {
-        case ADD_TEXT:
-            const baseText = value !== null ? '' : '' + state;
+        case ADD_TEXT: {
+            let baseText = value !== null ? '' : '' + state;
             return baseText + action.text;
+        }
 
         case RANDOM_TEXT: 
             return randomText();
@@ -71,7 +72,7 @@ const reducer = (state = initialState, action) => {
         value: newValue,
         filter: setFilter(state.filter, action),
         history: setHistory(state.history, action, newText, newValue)
-    }
+    };
 };
 
 export default reducer;

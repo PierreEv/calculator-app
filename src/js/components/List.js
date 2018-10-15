@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class List extends React.Component {
 
-    constructor(props){
+    constructor (props) {
         super(props);
         this.buildItem = this.buildItem.bind(this);
     }
@@ -15,7 +15,7 @@ class List extends React.Component {
         </li>);
     }
 
-    render() {
+    render () {
         const previousOp = this.props.history.map(this.buildItem);
         return (
             <div className="List">
@@ -23,8 +23,7 @@ class List extends React.Component {
             </div>
         );
     }
-
-};
+}
 
 const mapStateToProps = (state, props) => {
     return {
