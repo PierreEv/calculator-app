@@ -1,7 +1,7 @@
 import React from 'react';
 import Display from './ConnectedDisplay';
 import Keyboard from './ConnectedKeyboard';
-import ConnectedAdminForm from './AdminForm';
+import AdminForm from './AdminForm';
 import { getUserRole } from "../utils";
 
 class App extends React.Component {
@@ -32,7 +32,7 @@ class App extends React.Component {
             <div className='app'>
                 <Display />
                 <Keyboard />
-                {this.state.displayAdminForm ? <ConnectedAdminForm /> : null}
+                {this.state.displayAdminForm ? <AdminForm /> : null}
             </div>
         );
     }
