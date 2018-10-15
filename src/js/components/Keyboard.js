@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import { getUserRole } from '../utils';
+import { USER_ROLES, KEY_CODES } from '../constants';
 
 class Keyboard extends React.Component {
 
@@ -10,7 +11,7 @@ class Keyboard extends React.Component {
     }
 
     handleKeyDown (event) {
-        if (event.keyCode === 32 && typeof(this.props.onRandomCompute) === 'function' && getUserRole() === 'developer') {
+        if (event.keyCode === KEY_CODES.SPACE && typeof(this.props.onRandomCompute) === 'function' && getUserRole() === USER_ROLES.DEVELOPER) {
             event.preventDefault();
             this.props.onRandomCompute();
         }

@@ -3,6 +3,7 @@ import Display from './ConnectedDisplay';
 import Keyboard from './ConnectedKeyboard';
 import AdminForm from './AdminForm';
 import { getUserRole } from '../utils';
+import { USER_ROLES, KEY_CODES } from '../constants';
 
 class App extends React.Component {
 
@@ -13,7 +14,7 @@ class App extends React.Component {
     }
 
     handleKeyDown (event) {
-        if (event.keyCode === 72 && getUserRole() === 'admin') {
+        if (event.keyCode === KEY_CODES.H && getUserRole() === USER_ROLES.ADMIN) {
             event.preventDefault();
             this.setState({ displayAdminForm: !this.state.displayAdminForm });
         }

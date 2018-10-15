@@ -1,3 +1,5 @@
+import { URL_PARAMS } from './constants';
+
 const REXP_OP = /[\/+\-*]/;
 
 export const computeValue = (text) => {
@@ -65,5 +67,5 @@ export const getUrlParams = () => {
 
 export const getUserRole = () => {
     const urlParams = getUrlParams();
-    return urlParams.userRole ? urlParams.userRole : null;
+    return urlParams[URL_PARAMS.USER_ROLE] || null;
 };
