@@ -42,6 +42,4 @@ const mapDispatchToProps = (dispatch, props) => {
     };
 };
 
-const ConnectedSearch = connect(null, mapDispatchToProps)(Search);
-
-export default ConnectedSearch;
+export default connect(null, mapDispatchToProps)(Search);

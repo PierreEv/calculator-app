@@ -1,6 +1,6 @@
 import React from 'react';
-import Display from './ConnectedDisplay';
-import Keyboard from './ConnectedKeyboard';
+import Display from './Display';
+import Keyboard from './Keyboard';
 import AdminForm from './AdminForm';
 import { getUserRole } from '../utils';
 import { USER_ROLES, KEY_CODES } from '../constants';

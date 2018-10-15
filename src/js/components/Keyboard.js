@@ -2,6 +2,8 @@ import React from 'react';
 import Button from './Button';
 import { getUserRole } from '../utils';
 import { USER_ROLES, KEY_CODES } from '../constants';
+import { connect } from 'react-redux';
+import { addText, clearText, computeText, randomText } from '../redux/actions';
 
 class Keyboard extends React.Component {
 
@@ -79,4 +81,16 @@ class Keyboard extends React.Component {
     }
 }
 
-export default Keyboard;
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onTextClick: i => dispatch(addText(i)),
+        onClearClick: () => dispatch(clearText()),
+        onComputeClick: () => dispatch(computeText()),
+        onRandomCompute: () => {
+            dispatch(randomText());
+            dispatch(computeText());
+        }
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Keyboard);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Display extends React.Component {
     render () {
@@ -11,4 +12,11 @@ class Display extends React.Component {
     }
 }
 
-export default Display;
+const mapStateToProps = (state, props) => {
+    return {
+        text: state.text,
+        value: state.value
+    };
+};
+
+export default connect(mapStateToProps)(Display);

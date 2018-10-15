@@ -37,6 +37,4 @@ const mapStateToProps = (state, props) => {
     };
 };
 
-const ConnectedList = connect(mapStateToProps)(List);
-
-export default ConnectedList;
+export default connect(mapStateToProps)(List);
