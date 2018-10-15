@@ -8,18 +8,23 @@ class List extends React.Component {
         this.buildItem = this.buildItem.bind(this);
     }
 
-    buildItem (state, i) {
-        const searchPos = state.value.toString().search(this.props.filter);
-        return searchPos === -1 ? null : (<li key={i}>
-            {state.text + ' = ' + state.value}
-        </li>);
+    buildItem (acc, state, i) {
+        const searchPos = state.value.toString().indexOf(this.props.filter);
+        if (searchPos !== -1) {
+            acc.push((<li key={i}>
+                {state.text + ' = ' + state.value}
+            </li>));
+        }
+
+        return acc;
     }
 
     render () {
-        const previousOp = this.props.history.map(this.buildItem);
+        const history = this.props.history;
+        const items = history.reduce(this.buildItem, []);
         return (
             <div className="List">
-                <ol>{previousOp}</ol>
+                <ol>{items}</ol>
             </div>
         );
     }
