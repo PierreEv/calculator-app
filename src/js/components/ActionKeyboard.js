@@ -24,8 +24,8 @@ class ActionKeyboard extends React.Component {
     render () {
         return (
             <div className="action-keyboard flex-row-container">
-                {this.renderComputeButton('=')}
                 {this.renderClearButton('C')}
+                {this.renderComputeButton('=')}
             </div>
         );
     }

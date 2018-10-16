@@ -22,8 +22,10 @@ class List extends React.Component {
     render () {
         const history = this.props.history;
         const items = history.reduce(this.buildItem, []);
+        const text = items.length + ' match' + (items.length > 1 ? 's': '' ) + ' on ' + history.length + ' result'+ (history.length > 1 ? 's': '' );
         return (
-            <div className="List">
+            <div className="list">
+                {text}
                 <ol>{items}</ol>
             </div>
         );

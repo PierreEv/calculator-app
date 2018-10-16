@@ -36,10 +36,12 @@ class App extends React.Component {
 
     render () {
         return (
-            <div className='app'>
-                <Display />
-                <Keyboard />
-                {this.state.displayAdminForm ? <AdminForm /> : null}
+            <div className="app">
+                <div className="calculator">
+                    <Display />
+                    <Keyboard />
+                </div>
+                {this.state.displayAdminForm && <AdminForm />}
             </div>
         );
     }
