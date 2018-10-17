@@ -5,11 +5,10 @@ import { addText } from '../redux/actions';
 
 class TextKeyboard extends React.Component {
 
-    renderButton (i, className) {
+    renderButton (value, label = value) {
         return <Button
-            className={className}
-            value={i}
-            onClick={() => this.props.onTextClick(i)}
+            value={label}
+            onClick={() => this.props.onTextClick(value)}
         />;
     }
 
@@ -38,7 +37,7 @@ class TextKeyboard extends React.Component {
                     </div>
                 </div>
                 <div className="ops flex-column-container">
-                    {this.renderButton('*')}
+                    {this.renderButton('*', 'x')}
                     {this.renderButton('/')}
                     {this.renderButton('+')}
                     {this.renderButton('-')}
