@@ -41,10 +41,10 @@ const setValue = (state, action, text) => {
     }
 };
 
-const setHistory = (state, action, text, value) => {
+const setHistory = (state, action, text, value, previousValue) => {
     switch (action.type) {
         case COMPUTE_TEXT:            
-            return value !== null ? state.concat({
+            return value !== null && previousValue === null ? state.concat({
                 text: text,
                 value: value
             }) : state;
@@ -82,7 +82,7 @@ const reducer = (state = initialState, action) => {
         text: newText,
         value: newValue,
         filter: setFilter(state.filter, action),
-        history: setHistory(state.history, action, newText, newValue),
+        history: setHistory(state.history, action, newText, newValue, state.value),
         displayForm: setDisplayForm(state.displayForm, action)
     };
 };
