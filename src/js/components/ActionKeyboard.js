@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from './Button';
-import { clearText, computeText } from '../redux/actions';
+import { clearText, computeText, toggleForm } from '../redux/actions';
+import { getUserRole } from '../utils';
+import { USER_ROLES } from '../constants';
 
 class ActionKeyboard extends React.Component {
 
@@ -13,19 +15,14 @@ class ActionKeyboard extends React.Component {
         />;
     }
 
-    renderClearButton (i) {
-        return this.renderButton(i, this.props.onClearClick);
-    }
-
-    renderComputeButton (i) {
-        return this.renderButton(i, this.props.onComputeClick);
-    }
-
     render () {
+        const userIsAdmin = getUserRole() === USER_ROLES.ADMIN;
+        
         return (
             <div className="action-keyboard flex-row-container">
-                {this.renderClearButton('C')}
-                {this.renderComputeButton('=')}
+                {userIsAdmin && this.renderButton('List', this.props.onListClick)}
+                {this.renderButton('C', this.props.onClearClick)}
+                {this.renderButton('=', this.props.onComputeClick)}
             </div>
         );
     }
@@ -34,7 +31,8 @@ class ActionKeyboard extends React.Component {
 const mapDispatchToProps = (dispatch, props) => {
     return {
         onClearClick: () => dispatch(clearText()),
-        onComputeClick: () => dispatch(computeText())
+        onComputeClick: () => dispatch(computeText()),
+        onListClick: () => dispatch(toggleForm())
     };
 };
 

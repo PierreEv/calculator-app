@@ -12,15 +12,10 @@ class App extends React.Component {
     constructor (props) {
         super(props);
         this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.state = { displayAdminForm: false };
     }
 
     handleKeyDown (event) {
-        if (event.keyCode === KEY_CODES.H && getUserRole() === USER_ROLES.ADMIN) {
-            event.preventDefault();
-            this.setState({ displayAdminForm: !this.state.displayAdminForm });
-
-        } else if (event.keyCode === KEY_CODES.SPACE && typeof(this.props.onRandomCompute) === 'function' && getUserRole() === USER_ROLES.DEVELOPER) {
+        if (event.keyCode === KEY_CODES.SPACE && typeof(this.props.onRandomCompute) === 'function' && getUserRole() === USER_ROLES.DEVELOPER) {
             event.preventDefault();
             this.props.onRandomCompute();
         }
@@ -41,11 +36,17 @@ class App extends React.Component {
                     <Display />
                     <Keyboard />
                 </div>
-                {this.state.displayAdminForm && <AdminForm />}
+                {this.props.displayAdminForm && <AdminForm />}
             </div>
         );
     }
 }
+
+const mapStateToProps = (state, props) => {
+    return {
+        displayAdminForm: state.displayForm
+    };
+};
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
@@ -56,4 +57,4 @@ const mapDispatchToProps = (dispatch, props) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,9 +1,10 @@
-import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT, RANDOM_TEXT, SET_FILTER } from './action-types';
+import { ADD_TEXT, CLEAR_TEXT, COMPUTE_TEXT, RANDOM_TEXT, SET_FILTER, TOGGLE_FORM } from './action-types';
 import { computeValue, randomText } from '../utils';
 
 const initialState = {
     history: [],
     filter: '',
+    displayForm: false,
     text: '',
     value: null
 };
@@ -63,6 +64,16 @@ const setFilter = (state, action) => {
     }
 };
 
+const setDisplayForm = (state, action) => {
+    switch (action.type) {
+        case TOGGLE_FORM:            
+            return !state;
+            
+        default:
+            return state;
+    }
+};
+
 const reducer = (state = initialState, action) => {
     const newText = setText(state.text, action, state.value),
         newValue = setValue(state.value, action, state.text);
@@ -71,7 +82,8 @@ const reducer = (state = initialState, action) => {
         text: newText,
         value: newValue,
         filter: setFilter(state.filter, action),
-        history: setHistory(state.history, action, newText, newValue)
+        history: setHistory(state.history, action, newText, newValue),
+        displayForm: setDisplayForm(state.displayForm, action)
     };
 };
 
