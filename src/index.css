@@ -1,0 +1,105 @@
+/***********/
+/** TOOLS **/
+/***********/
+.app, .flex-row-container {
+    display: flex;
+    flex-flow: row;
+}
+
+.display, .flex-column-container {
+    display: flex;
+    flex-flow: column;
+}
+
+
+/****************/
+/** COMPONENTS **/
+/****************/
+.app {
+    font-family: Arial;
+}
+
+.calculator {
+    border: 1px solid #e1e1e1;
+    height: 100%;
+    max-width: 289px;
+    min-width: 289px;
+}
+
+/** DISPLAY **/
+.display {
+    text-align: right;
+    padding: 0.5em;
+    height: 6em;
+}
+
+.text-operation {
+    padding: 5px;
+    font-size: 18px;
+    flex: auto;
+    word-break: break-all;
+}
+
+.value-operation {
+    padding: 5px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/** KEYBOARD **/
+.action-keyboard {
+    background-color: #3b95ef;
+    box-shadow: inset 0px 10px 8px -5px #3a84cf;
+}
+
+.text-keyboard {
+    background-color: #f9f9f9;
+}
+
+.ops {
+    border-left: 1px solid #e1e1e1;
+}
+
+.action-btn {
+    flex-grow: 1;
+}
+
+button.action-btn {
+    color: white;
+}
+
+button:hover.action-btn {
+    background-color: #3176bb;
+}
+
+button {
+    width: 4em;
+    height: 4em;
+    font-size: 18px;
+
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+    border: 0;
+    background: none;
+}
+
+button.hover,
+button:hover {
+    background-color: #bdbdbd;
+}
+
+/** ADMIN FORM **/
+.admin-form {
+    padding: 10px;
+    overflow: auto;
+}
+
+.search {
+    margin-bottom: 10px;
+}
+
+input[type=text] {
+    font-size: 16px;
+}
