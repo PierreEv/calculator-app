@@ -1,5 +1,14 @@
 # Calculator 
 
+A React Redux Calculator
+
+![](images/read_me.jpg)
+
+
+## Prerequisite
+
+Git & npm
+
 
 ## Getting started
 
@@ -24,12 +33,13 @@ The application will start automatically on http://localhost:3000
   - As **developer**, on SPACE down a random compute is achieved.
   - As **admin**, LIST button toggle the list of all past computes. You can search a result thanks to the text input.
 
+
 ## User roles
-You can use **user-role** as url parameter to switch between role, as below:
+You can add **user-role** as url parameter to switch between role, as below:
 
 Role | Url
 ------------ | -------------
-user (default) |[no params](http://localhost:3000/)
+default user |[no params](http://localhost:3000/)
 developer | ["?user-role=developer"](http://localhost:3000/?user-role=developer)
 admin | ["?user-role=admin"](http://localhost:3000/?user-role=admin)
 
@@ -37,3 +47,4 @@ admin | ["?user-role=admin"](http://localhost:3000/?user-role=admin)
 ## To do
 - [ ] Add highlight for matching text (Admin / Search result)
 - [ ] Improve random computes creation (Developer)
+- [ ] Do not use `eval()` to execute calculations
